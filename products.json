@@ -1,0 +1,10 @@
+{
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "USD_price": 0.0,
+    "EUR_price": 0.0,
+    "file_link": "string",
+    "creation_date": "2021-09-06",
+    "order_counter": 0
+}
