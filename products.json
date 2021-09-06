@@ -1,10 +1,24 @@
 {
-    "id": "string",
-    "name": "string",
-    "description": "string",
-    "USD_price": 0.0,
-    "EUR_price": 0.0,
-    "file_link": "string",
-    "creation_date": "2021-09-06",
-    "order_counter": 0
+  "products": [
+    {
+      "id": "id",
+      "name": "name",
+      "description": "string",
+      "USD_price": 0,
+      "EUR_price": 0,
+      "file_link": "file_link_1",
+      "creation_date": "2021-09-06",
+      "order_counter": 2
+    },
+    {
+      "id": "id2",
+      "name": "name",
+      "description": "string",
+      "USD_price": 0,
+      "EUR_price": 0,
+      "file_link": "file_link_2",
+      "creation_date": "2021-09-06",
+      "order_counter": 25
+    }
+  ]
 }
