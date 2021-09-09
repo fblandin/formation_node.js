@@ -1,0 +1,43 @@
+{
+  "name": "formation_node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -e ts --inspect=0.0.0.0:9229 --exec \"npm start\"",
+    "start": "nodemon ./server.js localhost 8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fblandin/formation_node.js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fblandin/formation_node.js/issues"
+  },
+  "homepage": "https://github.com/fblandin/formation_node.js#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-restify-mongoose": "^6.1.2",
+    "express-session": "^1.17.2",
+    "helmet": "^4.6.0",
+    "jquery": "^3.6.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.5",
+    "passport": "^0.4.1",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.2",
+    "serve-static": "^1.14.1",
+    "socket.io": "^4.2.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.1"
+  }
+}

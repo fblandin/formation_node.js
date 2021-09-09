@@ -1,0 +1,64 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $('#orderProduct_id').submit(function(e){
+        
+    e.preventDefault();
+    alert('toto');
+    $.ajax({
+        url: '/orderProduct',
+        type: 'post',
+        data:$('#orderProduct_id').serialize(),
+        success:function(data){
+            $('#productDetails_id').val("   -  " + data.id + " test")
+        }
+    });
+});
+
+function GetMyOrders(){
+  $.get("/Orders", function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+};
+
+function GetMyProducts(){
+  $.get("/Orders/Products", function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+};
+</script>
+
+<form action="/login" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" value="test@yopmail.com"/>
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" value="pw"/>
+    </div>
+    <div>
+        <input type="submit" value="Log In"/>
+    </div>
+</form>
+
+<a href="/auth/google">Sign In with Google</a>
+<a href="/auth/facebook">Login with Facebook</a>
+<ul> 
+    <% products.forEach(function(product) { %>
+        <li id="productDetails_<%= product.id %>">
+            -  <%= product.id %>  - <%= product.name %> / <%= product.EUR_price %> | <%= product.order_counter %>
+        </li>
+            <form action="/orderProduct" method="post" id="orderProduct_<%= product.id %>">
+            <div>
+                <input hidden type="text" name="id" value="<%= product.id %>"/>
+            </div>
+            <div>
+                <input type="submit" value="Order"/>
+            </div>
+        </form>
+    <% }); %>
+</ul>
+
+<button onclick="GetMyOrders()">Get my orders</button>
+
+<button onclick="GetMyProducts()">Get My Products</button>

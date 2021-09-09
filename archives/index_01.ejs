@@ -1,0 +1,47 @@
+
+
+<ul> 
+    <% products.forEach(function(product) { %>
+        <li>
+            -  <%= product.id %>  - <%= product.name %> / <%= product.EUR_price %> | <%= product.order_counter %>
+        </li>
+        
+        
+        <button id = <%= product.id %> onclick="order(<%= product.id %>)">Order item</button>
+    <% }); %>
+</ul>
+
+<script>
+function order(value){
+    console.log(value)
+    fetch(`./orderProduct/${value}`, { method: 'POST'})
+      .then(function (response) {
+        if (response.ok) {
+          return
+        }
+        else
+        {
+            var userMail = window.prompt("user :", "test@yopmail.com")
+            var pw = window.prompt("pw:", "pw")
+            
+            fetch(`./orderProduct/${value}`, { method: 'POST', body: {username: userMail, password:pw}})
+                .then(function (response) {
+                    if (response.ok) {
+                    return
+                    }
+                    else
+                    {
+                        console.log('Error')    
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+
+            return
+        }
+      })
+      .catch(function (error) {
+        console.log(error)
+      })}
+</script>
