@@ -20,12 +20,12 @@ const userModel = require('./model/User')
 const orderModel = require('./model/Order')  
 
 const app = express()
-const port = 3000
+const port = 3001
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"))
 app.use(helmet());
 
-mongoose.connect('mongodb://localhost:27017/test');
+mongoose.connect('mongodb+srv://fblandin:<TEST_FORMATION_01>@cluster0.bxosc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
 // create application/json parser
 var jsonParser = bodyParser.json()
  
@@ -93,8 +93,7 @@ passport.use(new FacebookStrategy({
 // Product functions :
 
 function getAllProducts(callback){
-    console.log('toto')
-    
+   
     productModel.find({}, callback)
 } 
 
